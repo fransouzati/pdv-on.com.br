@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Pdv</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ pdv.id }}</td>
+            </tr>
+            <tr>
+                <th>Nome</th>
+                <td>{{ pdv.nome }}</td>
+            </tr>
+            <tr>
+                <th>Logradouro</th>
+                <td>{{ pdv.logradouro }}</td>
+            </tr>
+            <tr>
+                <th>Maps</th>
+                <td>{{ pdv.maps }}</td>
+            </tr>
+            <tr>
+                <th>Isdeposito</th>
+                <td>{{ pdv.isDeposito }}</td>
+            </tr>
+            <tr>
+                <th>Ativo</th>
+                <td>{{ pdv.ativo }}</td>
+            </tr>
+            <tr>
+                <th>Dtcadastro</th>
+                <td>{% if pdv.dtCadastro %}{{ pdv.dtCadastro|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('pdv_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('pdv_edit', { 'id': pdv.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

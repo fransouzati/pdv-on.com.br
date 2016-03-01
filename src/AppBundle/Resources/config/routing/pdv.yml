@@ -1,0 +1,24 @@
+pdv_index:
+    path:     /
+    defaults: { _controller: "AppBundle:Pdv:index" }
+    methods:  GET
+
+pdv_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Pdv:show" }
+    methods:  GET
+
+pdv_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Pdv:new" }
+    methods:  [GET, POST]
+
+pdv_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:Pdv:edit" }
+    methods:  [GET, POST]
+
+pdv_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:Pdv:delete" }
+    methods:  DELETE

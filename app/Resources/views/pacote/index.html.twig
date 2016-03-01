@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Pacote list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Dtinicio</th>
+                <th>Dtfim</th>
+                <th>Preco</th>
+                <th>Qtdpdv</th>
+                <th>Qtdusuario</th>
+                <th>Qtdvigencia</th>
+                <th>Ativo</th>
+                <th>Dtcadastro</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for pacote in pacotes %}
+            <tr>
+                <td><a href="{{ path('pacote_show', { 'id': pacote.id }) }}">{{ pacote.id }}</a></td>
+                <td>{{ pacote.nome }}</td>
+                <td>{% if pacote.dtInicio %}{{ pacote.dtInicio|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if pacote.dtFim %}{{ pacote.dtFim|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ pacote.preco }}</td>
+                <td>{{ pacote.qtdPdv }}</td>
+                <td>{{ pacote.qtdUsuario }}</td>
+                <td>{{ pacote.qtdVigencia }}</td>
+                <td>{{ pacote.ativo }}</td>
+                <td>{% if pacote.dtCadastro %}{{ pacote.dtCadastro|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('pacote_show', { 'id': pacote.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('pacote_edit', { 'id': pacote.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('pacote_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

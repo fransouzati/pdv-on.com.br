@@ -1,0 +1,64 @@
+AppBundle\Entity\Empresa:
+    type: entity
+    table: empresa
+    uniqueConstraints:
+        cnpj_UNIQUE:
+            columns:
+                - cnpj
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        razaoSocial:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            column: razao_social
+        fantasia:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+        cnpj:
+            type: string
+            nullable: true
+            length: 14
+            fixed: true
+        ativo:
+            type: string
+            nullable: false
+            length: 1
+            fixed: true
+            default: S
+        cpf:
+            type: string
+            nullable: true
+            length: 11
+            fixed: true
+        dtCadastro:
+            type: datetime
+            nullable: false
+            default: CURRENT_TIMESTAMP
+            column: dt_cadastro
+    manyToMany:
+        pacote:
+            targetEntity: Pacote
+            cascade: {  }
+            mappedBy: empresa
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+        fosUser:
+            targetEntity: FosUser
+            cascade: {  }
+            mappedBy: empresa
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    lifecycleCallbacks: {  }

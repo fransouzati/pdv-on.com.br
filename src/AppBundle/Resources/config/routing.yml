@@ -1,0 +1,29 @@
+home:
+    path:     /
+    defaults: { _controller: "AppBundle:Default:index" }
+    methods:  GET
+
+app_pacote:
+    resource: "@AppBundle/Resources/config/routing/pacote.yml"
+    prefix:   /pacote
+
+app_fosgroup:
+        resource: "@AppBundle/Resources/config/routing/fosgroup.yml"
+        prefix:   /fosgroup
+
+app_empresa:
+        resource: "@AppBundle/Resources/config/routing/empresa.yml"
+        prefix:   /empresa
+        
+app_produto:
+        resource: "@AppBundle/Resources/config/routing/produto.yml"
+        prefix:   /produto
+        
+app_pdv:
+        resource: "@AppBundle/Resources/config/routing/pdv.yml"
+        prefix:   /pdv
+        
+app_compra:
+        resource: "@AppBundle/Resources/config/routing/compra.yml"
+        prefix:   /compra
+

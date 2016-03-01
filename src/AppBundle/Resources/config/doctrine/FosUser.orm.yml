@@ -1,0 +1,141 @@
+AppBundle\Entity\FosUser:
+    type: entity
+    table: fos_user
+    uniqueConstraints:
+        UNIQ_957A647992FC23A8:
+            columns:
+                - username_canonical
+        UNIQ_957A6479A0D96FBF:
+            columns:
+                - email_canonical
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        username:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+        usernameCanonical:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            column: username_canonical
+        email:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+        emailCanonical:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            column: email_canonical
+        enabled:
+            type: boolean
+            nullable: false
+        salt:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+        password:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+        lastLogin:
+            type: datetime
+            nullable: true
+            column: last_login
+        locked:
+            type: boolean
+            nullable: false
+        expired:
+            type: boolean
+            nullable: false
+        expiresAt:
+            type: datetime
+            nullable: true
+            column: expires_at
+        confirmationToken:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+            column: confirmation_token
+        passwordRequestedAt:
+            type: datetime
+            nullable: true
+            column: password_requested_at
+        roles:
+            type: array
+            nullable: false
+            length: null
+            fixed: false
+        credentialsExpired:
+            type: boolean
+            nullable: false
+            column: credentials_expired
+        credentialsExpireAt:
+            type: datetime
+            nullable: true
+            column: credentials_expire_at
+    manyToMany:
+        group:
+            targetEntity: FosGroup
+            cascade: {  }
+            mappedBy: null
+            inversedBy: user
+            joinTable:
+                name: fos_user_group
+                joinColumns:
+                    -
+                        name: user_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: group_id
+                        referencedColumnName: id
+            orderBy: null
+        fosUser1:
+            targetEntity: FosUser
+            cascade: {  }
+            mappedBy: null
+            inversedBy: fosUser
+            joinTable:
+                name: fos_user_has_fos_user
+                joinColumns:
+                    -
+                        name: fos_user_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: fos_user_id1
+                        referencedColumnName: id
+            orderBy: null
+        empresa:
+            targetEntity: Empresa
+            cascade: {  }
+            mappedBy: null
+            inversedBy: fosUser
+            joinTable:
+                name: usuario_empresa
+                joinColumns:
+                    -
+                        name: fos_user_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: empresa_id
+                        referencedColumnName: id
+            orderBy: null
+    lifecycleCallbacks: {  }

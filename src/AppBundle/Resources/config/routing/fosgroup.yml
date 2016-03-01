@@ -1,0 +1,24 @@
+fosgroup_index:
+    path:     /
+    defaults: { _controller: "AppBundle:FosGroup:index" }
+    methods:  GET
+
+fosgroup_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:FosGroup:show" }
+    methods:  GET
+
+fosgroup_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:FosGroup:new" }
+    methods:  [GET, POST]
+
+fosgroup_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:FosGroup:edit" }
+    methods:  [GET, POST]
+
+fosgroup_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:FosGroup:delete" }
+    methods:  DELETE

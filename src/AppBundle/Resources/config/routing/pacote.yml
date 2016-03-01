@@ -1,0 +1,24 @@
+pacote_index:
+    path:     /
+    defaults: { _controller: "AppBundle:Pacote:index" }
+    methods:  GET
+
+pacote_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Pacote:show" }
+    methods:  GET
+
+pacote_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Pacote:new" }
+    methods:  [GET, POST]
+
+pacote_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:Pacote:edit" }
+    methods:  [GET, POST]
+
+pacote_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:Pacote:delete" }
+    methods:  DELETE

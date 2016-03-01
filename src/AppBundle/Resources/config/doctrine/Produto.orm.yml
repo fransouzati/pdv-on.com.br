@@ -1,0 +1,57 @@
+AppBundle\Entity\Produto:
+    type: entity
+    table: produto
+    indexes:
+        fk_produto_empresa1_idx:
+            columns:
+                - empresa_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+    fields:
+        nome:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+        codigoBarra:
+            type: string
+            nullable: true
+            length: 120
+            fixed: false
+            column: codigo_barra
+        ativo:
+            type: string
+            nullable: false
+            length: 1
+            fixed: true
+            default: S
+        imagem:
+            type: blob
+            nullable: true
+            length: 65535
+            fixed: false
+        path:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+        dtCadastro:
+            type: datetime
+            nullable: false
+            default: CURRENT_TIMESTAMP
+            column: dt_cadastro
+    oneToOne:
+        empresa:
+            targetEntity: Empresa
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                empresa_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

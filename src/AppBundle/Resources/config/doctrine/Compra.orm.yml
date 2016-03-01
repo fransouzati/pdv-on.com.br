@@ -1,0 +1,62 @@
+AppBundle\Entity\Compra:
+    type: entity
+    table: compra
+    indexes:
+        fk_compra_produto1_idx:
+            columns:
+                - produto_id
+                - produto_empresa_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        quantidade:
+            type: string
+            nullable: true
+            length: 45
+            fixed: false
+        preco:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+        dtCadastro:
+            type: datetime
+            nullable: false
+            default: CURRENT_TIMESTAMP
+            column: dt_cadastro
+    manyToOne:
+        produto:
+            targetEntity: Produto
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                produto_id:
+                    referencedColumnName: id
+                produto_empresa_id:
+                    referencedColumnName: empresa_id
+            orphanRemoval: false
+    manyToMany:
+        pdv:
+            targetEntity: Pdv
+            cascade: {  }
+            mappedBy: null
+            inversedBy: compra
+            joinTable:
+                name: distribuicao
+                joinColumns:
+                    -
+                        name: compra_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: pdv_id
+                        referencedColumnName: id
+            orderBy: null
+    lifecycleCallbacks: {  }

@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Pdv list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Logradouro</th>
+                <th>Maps</th>
+                <th>Isdeposito</th>
+                <th>Ativo</th>
+                <th>Dtcadastro</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for pdv in pdvs %}
+            <tr>
+                <td><a href="{{ path('pdv_show', { 'id': pdv.id }) }}">{{ pdv.id }}</a></td>
+                <td>{{ pdv.nome }}</td>
+                <td>{{ pdv.logradouro }}</td>
+                <td>{{ pdv.maps }}</td>
+                <td>{{ pdv.isDeposito }}</td>
+                <td>{{ pdv.ativo }}</td>
+                <td>{% if pdv.dtCadastro %}{{ pdv.dtCadastro|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('pdv_show', { 'id': pdv.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('pdv_edit', { 'id': pdv.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('pdv_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,68 @@
+AppBundle\Entity\Pdv:
+    type: entity
+    table: pdv
+    indexes:
+        fk_pdv_empresa1_idx:
+            columns:
+                - empresa_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        nome:
+            type: string
+            nullable: true
+            length: 120
+            fixed: false
+        logradouro:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+        maps:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+        isDeposito:
+            type: string
+            nullable: false
+            length: 1
+            fixed: true
+            default: 'N'
+            column: is_deposito
+        ativo:
+            type: string
+            nullable: false
+            length: 1
+            fixed: true
+            default: S
+        dtCadastro:
+            type: datetime
+            nullable: false
+            default: CURRENT_TIMESTAMP
+            column: dt_cadastro
+    manyToOne:
+        empresa:
+            targetEntity: Empresa
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                empresa_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    manyToMany:
+        compra:
+            targetEntity: Compra
+            cascade: {  }
+            mappedBy: pdv
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    lifecycleCallbacks: {  }

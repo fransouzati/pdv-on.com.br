@@ -1,0 +1,74 @@
+AppBundle\Entity\Pacote:
+    type: entity
+    table: pacote
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        nome:
+            type: string
+            nullable: false
+            length: 250
+            fixed: false
+        dtInicio:
+            type: datetime
+            nullable: true
+            column: dt_inicio
+        dtFim:
+            type: datetime
+            nullable: true
+            column: dt_fim
+        preco:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+        qtdPdv:
+            type: integer
+            nullable: false
+            unsigned: false
+            column: qtd_pdv
+        qtdUsuario:
+            type: integer
+            nullable: false
+            unsigned: false
+            column: qtd_usuario
+        qtdVigencia:
+            type: integer
+            nullable: false
+            unsigned: false
+            column: qtd_vigencia
+        ativo:
+            type: string
+            nullable: false
+            length: 1
+            fixed: true
+            default: S
+        dtCadastro:
+            type: datetime
+            nullable: false
+            default: CURRENT_TIMESTAMP
+            column: dt_cadastro
+    manyToMany:
+        empresa:
+            targetEntity: Empresa
+            cascade: {  }
+            mappedBy: null
+            inversedBy: pacote
+            joinTable:
+                name: pacote_empresa
+                joinColumns:
+                    -
+                        name: pacote_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: empresa_id
+                        referencedColumnName: id
+            orderBy: null
+    lifecycleCallbacks: {  }

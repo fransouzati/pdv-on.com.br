@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Pacote</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ pacote.id }}</td>
+            </tr>
+            <tr>
+                <th>Nome</th>
+                <td>{{ pacote.nome }}</td>
+            </tr>
+            <tr>
+                <th>Dtinicio</th>
+                <td>{% if pacote.dtInicio %}{{ pacote.dtInicio|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Dtfim</th>
+                <td>{% if pacote.dtFim %}{{ pacote.dtFim|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Preco</th>
+                <td>{{ pacote.preco }}</td>
+            </tr>
+            <tr>
+                <th>Qtdpdv</th>
+                <td>{{ pacote.qtdPdv }}</td>
+            </tr>
+            <tr>
+                <th>Qtdusuario</th>
+                <td>{{ pacote.qtdUsuario }}</td>
+            </tr>
+            <tr>
+                <th>Qtdvigencia</th>
+                <td>{{ pacote.qtdVigencia }}</td>
+            </tr>
+            <tr>
+                <th>Ativo</th>
+                <td>{{ pacote.ativo }}</td>
+            </tr>
+            <tr>
+                <th>Dtcadastro</th>
+                <td>{% if pacote.dtCadastro %}{{ pacote.dtCadastro|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('pacote_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('pacote_edit', { 'id': pacote.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

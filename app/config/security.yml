@@ -30,8 +30,8 @@ security:
     role_hierarchy:
         ROLE_GERENTE:       ROLE_CAXA
         ROLE_EMPRESA:       ROLE_GERENTE
-        ROLE_ADMIN:       ROLE_USER
-        ROLE_SUPER_ADMIN: ROLE_ADMIN
+        ROLE_ADMIN:         ROLE_USER
+        ROLE_SUPER_ADMIN:   ROLE_ADMIN
 
     providers:
         fos_userbundle:
@@ -51,7 +51,10 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
-        - { path: ^/pacote/, role: ROLE_SUPER_ADMIN }
-        - { path: ^/group/, role: ROLE_SUPER_ADMIN }
-        - { path: ^/empresa/, role: ROLE_SUPER_ADMIN }
-        
+#        - { path: ^/pacote/, role: ROLE_SUPER_ADMIN }
+#        - { path: ^/group/, role: ROLE_SUPER_ADMIN }
+#        - { path: ^/empresa/, role: ROLE_SUPER_ADMIN }
+#        
+#        - { path: ^/pdv/, role: ROLE_EMPRESA }
+#        - { path: ^/produto/, role: ROLE_GERENTE }
+#        - { path: ^/compra/, role: ROLE_GERENTE }

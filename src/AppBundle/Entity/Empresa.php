@@ -52,7 +52,7 @@ class Empresa
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $fosUser;
+    private $user;
 
     /**
      * Constructor
@@ -60,7 +60,9 @@ class Empresa
     public function __construct()
     {
         $this->pacote = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->fosUser = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->user = new \Doctrine\Common\Collections\ArrayCollection();
+        
+         $this->dtCadastro= new \DateTime();
     }
 
     /**
@@ -245,35 +247,35 @@ class Empresa
     }
 
     /**
-     * Add fosUser
+     * Add user
      *
-     * @param \AppBundle\Entity\FosUser $fosUser
+     * @param \AppBundle\Entity\User $user
      * @return Empresa
      */
-    public function addFosUser(\AppBundle\Entity\FosUser $fosUser)
+    public function addUser(\AppBundle\Entity\User $user)
     {
-        $this->fosUser[] = $fosUser;
+        $this->user[] = $user;
 
         return $this;
     }
 
     /**
-     * Remove fosUser
+     * Remove user
      *
-     * @param \AppBundle\Entity\FosUser $fosUser
+     * @param \AppBundle\Entity\User $user
      */
-    public function removeFosUser(\AppBundle\Entity\FosUser $fosUser)
+    public function removeUser(\AppBundle\Entity\User $user)
     {
-        $this->fosUser->removeElement($fosUser);
+        $this->user->removeElement($user);
     }
 
     /**
-     * Get fosUser
+     * Get user
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getFosUser()
+    public function getUser()
     {
-        return $this->fosUser;
+        return $this->user;
     }
 }

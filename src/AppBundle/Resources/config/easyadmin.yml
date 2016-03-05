@@ -1,0 +1,50 @@
+easy_admin:
+    site_name: 'PDV-On'
+    list:
+        actions:
+            - { name: 'show', icon: 'search', label: '' }
+            - { name: 'edit', icon: 'pencil', label: '' }
+            - { name: 'delete', icon: 'trash', label: '' }
+    design:
+        menu:
+            - { entity: 'User', icon: 'user' }
+            - { entity: 'Group', icon: 'group' }
+            - { entity: 'Pacote', icon: 'tag' }
+            - { entity: 'Empresa', icon: 'tag' }
+    entities:
+        User:
+            label: 'Usuários'
+            class: AppBundle\Entity\User
+            edit:
+                fields: ['username', 'email', 'enabled', 'locked']
+            new:
+                fields: 
+                    - { property: 'username' }
+                    - { property: 'email', type: 'email', label: 'E-mail address' }
+                    - { property: 'plainPassword', type: 'password' }
+                    - { property: 'enabled'}
+                    - { property: 'locked'}
+        Group:
+            Label: 'Grupos'
+            class:  AppBundle\Entity\Group
+        Pacote:
+            Label: 'Pacote'
+            class:  AppBundle\Entity\Pacote
+            
+        Empresa:
+            Label: 'Empresas'
+            class:  AppBundle\Entity\Empresa
+            new:
+                fields: 
+                    - { property: 'razao_social', type: 'text', 'label': 'Razão Social' }
+                    - { property: 'fantasia', 'label': 'Nome Fantasia' }
+                    - { property: 'cnpj', 'label': 'CNPJ'  }
+                    - { property: 'cpf', 'label': 'CPF' }
+                    - { property: 'ativo', type: 'checkbox'}
+            edit:
+                fields: 
+                    - { property: 'razao_social', type: 'text', 'label': 'Razão Social' }
+                    - { property: 'fantasia', 'label': 'Nome Fantasia' }
+                    - { property: 'cnpj', 'label': 'CNPJ'  }
+                    - { property: 'cpf', 'label': 'CPF' }
+#                    - { property: 'ativo', type: 'checkbox'}

@@ -17,7 +17,7 @@ class PacoteType extends AbstractType {
                 ->add('nome')
                 ->add('dtInicio', 'datetime')
                 ->add('dtFim', 'datetime')
-                ->add('preco')
+                ->add('preco', null, array('label' => 'Preço'))
                 ->add('qtdPdv')
                 ->add('qtdUsuario')
                 ->add('qtdVigencia')

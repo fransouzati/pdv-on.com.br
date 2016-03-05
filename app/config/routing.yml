@@ -23,3 +23,8 @@ fos_user_group:
 
 app:
     resource: "@AppBundle/Resources/config/routing.yml"
+
+easy_admin_bundle:
+    resource: "@EasyAdminBundle/Controller/"
+    type:     annotation
+    prefix:   /admin

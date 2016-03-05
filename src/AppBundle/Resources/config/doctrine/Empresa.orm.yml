@@ -54,8 +54,8 @@ AppBundle\Entity\Empresa:
             inversedBy: null
             joinTable: null
             orderBy: null
-        fosUser:
-            targetEntity: FosUser
+        user:
+            targetEntity: User
             cascade: {  }
             mappedBy: empresa
             inversedBy: null
